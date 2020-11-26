@@ -9,16 +9,6 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true
     },
-    "tile2": {
-        "data": "hwQQABAAAACIiIiIiIiIiIiIiP//iIiIiIj4IiKPiIiIiC8iIo+IiIiIL/Ivj4iIiIgvIiKPiIiIiC8iIo+IiIj48iIij4iIiPgiLyKPiIiI+P8vIo+IiIiIiPjyiIiIiIiILyKPiIiIiPgiL4+IiIiI+P/4j4iIiIiIiIiIiIiIiIiIiIiIiA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true
-    },
-    "tile3": {
-        "data": "hwQQABAAAACIiIiIiIiIiIiIiP//iIiIiIj4mZmPiIiIiJ+ZmY+IiIiIn/mfj4iIiIifmZmPiIiIiJ+ZmY+IiIj4+ZmZj4iIiPiZn5mPiIiI+P+fmY+IiIiIiPj5iIiIiIiIn5mPiIiIiPiZn4+IiIiI+P/4j4iIiIiIiIiIiIiIiIiIiIiIiA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true
-    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
