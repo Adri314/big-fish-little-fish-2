@@ -221,6 +221,91 @@ function setLevel () {
         initFish("small", "blue", 6, 5)
         initFish("big", "yellow", 3, 6)
         initFish("small", "blue", 5, 6)
+    } else if (level == 12) {
+        game.showLongText("Level " + level, DialogLayout.Top)
+        tiles.setTilemap(tiles.createTilemap(hex`0a0008000000000000000000000000060404040404070000000600000000000500000006000000000005000000060000000000050000000600000000000500000006000000000005000000020101010101030000`, img`
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            `, [myTiles.transparency16,sprites.builtin.oceanSand2,sprites.builtin.oceanSand1,sprites.builtin.oceanSand3,sprites.builtin.coral4,sprites.builtin.coral2,sprites.builtin.coral1,sprites.builtin.coral5], TileScale.Sixteen))
+        initFish("big", "red", 2, 2)
+        initFish("big", "yellow", 2, 3)
+        initFish("big", "red", 2, 4)
+        initFish("big", "yellow", 2, 5)
+        initFish("small", "orange", 2, 6)
+        initFish("small", "green", 3, 6)
+        for (let index = 0; index <= 3; index++) {
+            initFish("big", "blue", 4, index + 2)
+        }
+        initFish("small", "purple", 4, 6)
+        initFish("small", "green", 5, 6)
+        initFish("big", "yellow", 6, 2)
+        initFish("big", "red", 6, 3)
+        initFish("big", "yellow", 6, 4)
+        initFish("big", "red", 6, 5)
+        initFish("small", "orange", 6, 6)
+    } else if (level == 13) {
+        game.showLongText("Level " + level, DialogLayout.Top)
+        tiles.setTilemap(tiles.createTilemap(hex`0a0008000000000000000000000000060404040404070000000600000000000500000006000800080005000000060000000000050000000608000000080500000006000008000005000000020101010101030000`, img`
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            `, [myTiles.transparency16,sprites.builtin.oceanSand2,sprites.builtin.oceanSand1,sprites.builtin.oceanSand3,sprites.builtin.coral4,sprites.builtin.coral2,sprites.builtin.coral1,sprites.builtin.coral5,sprites.builtin.coral0], TileScale.Sixteen))
+        initFish("small", "orange", 2, 2)
+        initFish("big", "red", 3, 2)
+        initFish("big", "blue", 5, 2)
+        initFish("small", "orange", 6, 2)
+        initFish("small", "green", 2, 4)
+        initFish("small", "green", 6, 4)
+        initFish("small", "orange", 4, 5)
+        initFish("small", "green", 2, 6)
+        initFish("big", "yellow", 3, 6)
+        initFish("big", "yellow", 5, 6)
+        initFish("small", "green", 6, 6)
+    } else if (level == 14) {
+        game.showLongText("Level " + level + "                Careful with the X!", DialogLayout.Top)
+        tiles.setTilemap(tiles.createTilemap(hex`0a0008000001010100010101000001000000010000000100010000000200000001000100000002000000010000010000020000010000000001000000010000000000000100010000000000000000010000000000`, img`
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            `, [myTiles.transparency16,sprites.builtin.coral0,myTiles.tile2], TileScale.Sixteen))
+        initFish("small", "purple", 2, 2)
+        initFish("big", "purple", 6, 2)
+    } else if (level == 15) {
+        game.showLongText("Level " + level, DialogLayout.Top)
+        tiles.setTilemap(tiles.createTilemap(hex`0a0008000000000000000000000000000000000000000000000002040404030000000000020000000300000000000200010003000000000002000000030000000000020404040300000000000000000000000000`, img`
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            `, [myTiles.transparency16,myTiles.tile2,sprites.builtin.coral1,sprites.builtin.coral5,sprites.builtin.coral4], TileScale.Sixteen))
+        initFish("big", "red", 3, 3)
+        initFish("small", "orange", 4, 3)
+        initFish("big", "red", 5, 3)
+        initFish("big", "red", 3, 4)
+        initFish("big", "yellow", 5, 4)
+        initFish("big", "yellow", 3, 5)
+        initFish("small", "orange", 4, 5)
+        initFish("big", "yellow", 5, 5)
     } else {
     	
     }
@@ -544,7 +629,14 @@ function checkMove (col: number, row: number) {
     for (let itemPlayer of sprites.allOfKind(SpriteKind.Player)) {
         move = true
         if (!(tiles.tileAtLocationEquals(grid.add(grid.getLocation(itemPlayer), col, row), myTiles.transparency16))) {
-            move = false
+            if (tiles.tileAtLocationEquals(grid.add(grid.getLocation(itemPlayer), col, row), myTiles.tile2)) {
+                itemPlayer.destroy()
+                if (sprites.allOfKind(SpriteKind.Player).length == 0) {
+                    game.showLongText("B to restart level UP+DOWN to skip level", DialogLayout.Bottom)
+                }
+            } else {
+                move = false
+            }
         } else {
             for (let itemObstacle of grid.getSprites(grid.add(grid.getLocation(itemPlayer), col, row))) {
                 if (itemObstacle.kind() != itemPlayer.kind() && sprites.readDataString(itemObstacle, "color") != sprites.readDataString(itemPlayer, "color")) {
