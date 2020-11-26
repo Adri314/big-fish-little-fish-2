@@ -161,6 +161,66 @@ function setLevel () {
         initFish("small", "yellow", 6, 6)
         initFish("big", "yellow", 3, 3)
         initFish("big", "red", 3, 4)
+    } else if (level == 9) {
+        game.showLongText("Level " + level, DialogLayout.Top)
+        tiles.setTilemap(tiles.createTilemap(hex`0a0008000000000000000000000000000000000000000000000604040404040500000006000000000005000000060000000000050000000600000000000500000006000000000005000000020101010101030000`, img`
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            `, [myTiles.transparency16,sprites.builtin.oceanSand2,sprites.builtin.oceanSand1,sprites.builtin.oceanSand3,sprites.builtin.coral4,sprites.builtin.coral2,sprites.builtin.coral1], TileScale.Sixteen))
+        initFish("small", "green", 4, 3)
+        initFish("small", "purple", 4, 6)
+        initFish("big", "red", 2, 3)
+        initFish("big", "yellow", 2, 6)
+        initFish("big", "blue", 6, 3)
+        initFish("big", "blue", 6, 6)
+    } else if (level == 10) {
+        game.showLongText("Level " + level, DialogLayout.Top)
+        tiles.setTilemap(tiles.createTilemap(hex`0a0008000000000000000000000000000000000000000000000000000000000000000006040404040405000000060000000000050000000600000000000500000006000000000005000000020101010101030000`, img`
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            `, [myTiles.transparency16,sprites.builtin.oceanSand2,sprites.builtin.oceanSand1,sprites.builtin.oceanSand3,sprites.builtin.coral4,sprites.builtin.coral2,sprites.builtin.coral1], TileScale.Sixteen))
+        initFish("small", "blue", 2, 4)
+        initFish("small", "blue", 3, 4)
+        initFish("small", "green", 4, 4)
+        initFish("small", "blue", 5, 4)
+        initFish("small", "yellow", 3, 6)
+        initFish("small", "green", 4, 6)
+        initFish("small", "yellow", 5, 6)
+        initFish("small", "yellow", 6, 6)
+        initFish("big", "blue", 6, 4)
+        initFish("big", "yellow", 2, 6)
+    } else if (level == 11) {
+        game.showLongText("Level " + level, DialogLayout.Top)
+        tiles.setTilemap(tiles.createTilemap(hex`0a0008000000000000000000000000000000000000000000000007050505050600000000040000000006000000000400000000060000000004000000000600000000040000000006000000000201010101030000`, img`
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            . . . . . . . . . . 
+            `, [myTiles.transparency16,sprites.builtin.oceanSand2,sprites.builtin.oceanSand1,sprites.builtin.oceanSand3,sprites.builtin.coral3,sprites.builtin.coral4,sprites.builtin.coral2,sprites.builtin.coral0], TileScale.Sixteen))
+        initFish("big", "red", 3, 3)
+        initFish("big", "blue", 6, 3)
+        initFish("small", "red", 3, 4)
+        initFish("small", "blue", 5, 4)
+        initFish("small", "orange", 4, 5)
+        initFish("small", "blue", 6, 5)
+        initFish("big", "yellow", 3, 6)
+        initFish("small", "blue", 5, 6)
     } else {
     	
     }
@@ -326,6 +386,7 @@ function initFish (size: string, color2: string, col: number, row: number) {
                 . . . . . . . . . . . . . . . . 
                 `, SpriteKind.Player)
         }
+        mySprite.z = 1
     } else {
         if (color2 == "red") {
             mySprite = sprites.create(img`
@@ -462,6 +523,7 @@ function initFish (size: string, color2: string, col: number, row: number) {
                 `, SpriteKind.Player)
         }
         mySprite.setKind(SpriteKind.Food)
+        mySprite.z = 0
     }
     sprites.setDataString(mySprite, "color", color2)
     grid.place(mySprite, tiles.getTileLocation(col, row))
