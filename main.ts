@@ -3433,21 +3433,27 @@ function intro () {
     }
     pause(300)
     textSprite = textsprite.create("Big Fish,", 0, 5)
-    textSprite.setMaxFontHeight(16)
+    textSprite.setMaxFontHeight(14)
     textSprite.setOutline(2, 4)
     textSprite.setPosition(80, 26)
     textSprite2 = textsprite.create("Little Fish", 0, 5)
-    textSprite2.setMaxFontHeight(16)
+    textSprite2.setMaxFontHeight(14)
     textSprite2.setOutline(2, 4)
-    textSprite2.setPosition(80, 56)
+    textSprite2.setPosition(80, 50)
     textSprite3 = textsprite.create("Move with arrow keys", 0, 3)
     textSprite3.setMaxFontHeight(6)
     textSprite3.setPosition(80, 92)
     textSprite4 = textsprite.create("Press B to restart levels", 0, 3)
     textSprite4.setMaxFontHeight(6)
     textSprite4.setPosition(80, 102)
-    textSprite5 = textsprite.create("Press A to start", 0, 3)
+    textSprite6 = textsprite.create("by Adri314", 0, 1)
+    textSprite6.setMaxFontHeight(6)
+    textSprite6.setOutline(1, 8)
+    textSprite6.setPosition(128, 68)
+    pause(2000)
+    textSprite5 = textsprite.create("Press A to start", 0, 1)
     textSprite5.setMaxFontHeight(6)
+    textSprite5.setOutline(1, 6)
     textSprite5.setPosition(80, 112)
     while (!(controller.A.isPressed())) {
         pause(100)
@@ -3458,6 +3464,7 @@ function intro () {
     textSprite3.destroy()
     textSprite4.destroy()
     textSprite5.destroy()
+    textSprite6.destroy()
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     checkMove(-1, 0)
@@ -3530,6 +3537,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 })
 let move = false
 let textSprite5: TextSprite = null
+let textSprite6: TextSprite = null
 let textSprite4: TextSprite = null
 let textSprite3: TextSprite = null
 let textSprite2: TextSprite = null
