@@ -3456,7 +3456,7 @@ function intro () {
     textSprite5.setOutline(1, 6)
     textSprite5.setPosition(80, 112)
     while (!(controller.A.isPressed())) {
-        pause(100)
+        pause(10)
     }
     music.playMelody("C D - F G - B A ", 360)
     textSprite.destroy()
