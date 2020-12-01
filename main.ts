@@ -453,14 +453,16 @@ function skipLevel () {
     }
 }
 function restartLevel () {
-    for (let value of sprites.allOfKind(SpriteKind.Player)) {
-        value.destroy()
+    if (gameStart) {
+        for (let value of sprites.allOfKind(SpriteKind.Player)) {
+            value.destroy()
+        }
+        tiles.setTilemap(tilemap`level_33`)
+        for (let value2 of sprites.allOfKind(SpriteKind.Food)) {
+            value2.destroy()
+        }
+        setLevel()
     }
-    tiles.setTilemap(tilemap`level_33`)
-    for (let value2 of sprites.allOfKind(SpriteKind.Food)) {
-        value2.destroy()
-    }
-    setLevel()
 }
 function initFish (size: string, color2: string, col: number, row: number) {
     if (size == "big") {
@@ -3545,8 +3547,12 @@ let textSprite: TextSprite = null
 let introAnim: Image[] = []
 let mySprite: Sprite = null
 let paused = false
+let gameStart = false
 let levelTotal = 0
 let level = 0
+level = 1
+levelTotal = 33
+gameStart = false
 intro()
 scene.setBackgroundColor(8)
 game.setDialogFrame(img`
@@ -3585,6 +3591,5 @@ game.setDialogCursor(img`
     . . f f f f f f f f . f f f . . 
     . . . . . . . . . . . . . . . . 
     `)
-level = 1
-levelTotal = 33
 setLevel()
+gameStart = true
