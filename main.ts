@@ -447,7 +447,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     restartLevel()
 })
 function skipLevel () {
-    if (level < levelTotal) {
+    if (level < levelTotal && gameStart) {
         level += 1
         restartLevel()
     }
@@ -3467,6 +3467,7 @@ function intro () {
     textSprite4.destroy()
     textSprite5.destroy()
     textSprite6.destroy()
+    gameStart = true
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     checkMove(-1, 0)
@@ -3592,4 +3593,3 @@ game.setDialogCursor(img`
     . . . . . . . . . . . . . . . . 
     `)
 setLevel()
-gameStart = true
